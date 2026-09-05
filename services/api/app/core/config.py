@@ -1,7 +1,6 @@
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -14,7 +13,7 @@ class Settings(BaseSettings):
     jwt_secret: str
     demo_user_password: str | None = None
     access_token_ttl_minutes: int = 30
-    cors_origins: list[str] = ["http://localhost:3000"]
+    cors_origins: str = "http://localhost:3000"
     log_level: str = "INFO"
     llm_provider: Literal["deterministic", "openai"] = "deterministic"
     openai_api_key: str | None = None
@@ -24,12 +23,9 @@ class Settings(BaseSettings):
     razorpay_test_mode: bool = True
     rate_limit_per_minute: int = 120
 
-    @field_validator("cors_origins", mode="before")
-    @classmethod
-    def parse_origins(cls, value: object) -> object:
-        if isinstance(value, str):
-            return [item.strip() for item in value.split(",") if item.strip()]
-        return value
+    @property
+    def cors_origin_list(self) -> list[str]:
+        return [item.strip() for item in self.cors_origins.split(",") if item.strip()]
 
     def validate_runtime(self) -> None:
         if len(self.jwt_secret) < 32:
