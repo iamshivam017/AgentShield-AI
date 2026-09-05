@@ -1,0 +1,24 @@
+from enum import StrEnum
+
+
+class Decision(StrEnum):
+    ALLOW = "ALLOW"
+    VERIFY = "VERIFY"
+    BLOCK = "BLOCK"
+
+
+class Role(StrEnum):
+    ADMIN = "ADMIN"
+    RISK_ANALYST = "RISK_ANALYST"
+    OPERATOR = "OPERATOR"
+    VIEWER = "VIEWER"
+
+
+class TransactionStatus(StrEnum):
+    EVALUATED = "EVALUATED"
+    AWAITING_VERIFICATION = "AWAITING_VERIFICATION"
+    APPROVED = "APPROVED"
+    BLOCKED = "BLOCKED"
+    PAYMENT_PENDING = "PAYMENT_PENDING"
+    PAYMENT_CREATED = "PAYMENT_CREATED"
+    PAYMENT_FAILED = "PAYMENT_FAILED"
