@@ -223,7 +223,7 @@ def verify_transaction(
         )
         .values(status=next_status, decision=next_decision)
     )
-    if result.rowcount != 1:
+    if getattr(result, "rowcount", 0) != 1:
         db.rollback()
         raise HTTPException(status_code=409, detail="Verification was already resolved")
     db.add(
@@ -271,7 +271,7 @@ async def execute_transaction(
         )
         .values(status=TransactionStatus.PAYMENT_PENDING.value)
     )
-    if claimed.rowcount != 1:
+    if getattr(claimed, "rowcount", 0) != 1:
         db.rollback()
         raise HTTPException(status_code=409, detail="Payment execution is already in progress")
     db.add(

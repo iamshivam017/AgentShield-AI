@@ -52,7 +52,7 @@ make dev
 
 The dashboard runs at <http://localhost:3000> and the API/OpenAPI UI at <http://localhost:8000/docs>.
 
-The development email is `analyst@agentshield.dev`; set `DEMO_USER_PASSWORD`
+The development email is `demo-admin@agentshield.dev`; set `DEMO_USER_PASSWORD`
 locally before startup. No reusable password is stored in the repository, and
 the account is never seeded in production.
 

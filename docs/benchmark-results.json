@@ -26,8 +26,8 @@
       "roc_auc": 0.928
     },
     "hist_gradient_boosting": {
-      "pr_auc": 0.891,
-      "roc_auc": 0.9342
+      "pr_auc": 0.8925,
+      "roc_auc": 0.9385
     },
     "isolation_forest": {
       "pr_auc": 0.8773,

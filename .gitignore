@@ -13,6 +13,7 @@ __pycache__/
 .ruff_cache/
 .venv/
 *.egg-info/
+services/api/uv.lock
 coverage.xml
 .coverage
 htmlcov/

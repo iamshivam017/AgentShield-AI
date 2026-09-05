@@ -97,7 +97,7 @@ def live() -> dict[str, str]:
 
 
 @app.get("/health/ready", tags=["health"])
-def ready() -> Response | dict[str, str]:
+def ready() -> JSONResponse:
     try:
         with engine.connect() as connection:
             connection.execute(text("SELECT count(*) FROM users"))
@@ -106,7 +106,7 @@ def ready() -> Response | dict[str, str]:
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             content={"status": "not_ready"},
         )
-    return {"status": "ready"}
+    return JSONResponse(content={"status": "ready"})
 
 
 @app.get("/metrics", include_in_schema=False)

@@ -5,7 +5,7 @@ import { login } from "@/lib/api";
 import { Logo } from "./Logo";
 
 export function Login({ onAuthenticated }: { onAuthenticated: (token: string) => void }) {
-  const [email, setEmail] = useState("analyst@agentshield.dev");
+  const [email, setEmail] = useState("demo-admin@agentshield.dev");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -42,7 +42,7 @@ export function Login({ onAuthenticated }: { onAuthenticated: (token: string) =>
         <form onSubmit={submit}>
           <p className="section-index">01 / SECURE ACCESS</p>
           <h2>Risk command center</h2>
-          <p className="muted">Use the seeded analyst account to run the deterministic demo.</p>
+          <p className="muted">Use the seeded administrator account to run the complete deterministic demo.</p>
           <label>Email<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="username" required /></label>
           <label>Password<input type="password" value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password" required /></label>
           {error && <p className="form-error" role="alert">{error}</p>}

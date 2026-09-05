@@ -10,13 +10,13 @@ from app.db.models import AgentPolicy, AuditEvent, PaymentIntent, User
 
 def seed_demo_data(db: Session, demo_user_password: str | None = None) -> None:
     if demo_user_password and not db.scalar(
-        select(User).where(User.email == "analyst@agentshield.dev")
+        select(User).where(User.email == "demo-admin@agentshield.dev")
     ):
         db.add(
             User(
-                email="analyst@agentshield.dev",
+                email="demo-admin@agentshield.dev",
                 password_hash=hash_password(demo_user_password),
-                role="RISK_ANALYST",
+                role="ADMIN",
             )
         )
     if not db.scalar(select(AgentPolicy).where(AgentPolicy.agent_id == "agent-shopping-01")):

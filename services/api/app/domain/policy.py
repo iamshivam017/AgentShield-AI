@@ -23,7 +23,9 @@ def evaluate_policy(
     signals: list[RiskSignal] = []
     category = intent.merchant_category.lower()
 
-    if not policy.is_active:
+    # SQLAlchemy applies column defaults at insert time, so transient policy
+    # objects can expose ``None`` here. Only an explicit false disables an agent.
+    if policy.is_active is False:
         violations.append("agent_disabled")
     if category in set(policy.blocked_categories):
         violations.append("blocked_merchant_category")

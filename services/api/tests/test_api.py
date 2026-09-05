@@ -32,7 +32,7 @@ def test_auth_is_required(client: TestClient) -> None:
 def test_invalid_login_is_generic(client: TestClient) -> None:
     response = client.post(
         "/api/v1/auth/login",
-        json={"email": "analyst@agentshield.dev", "password": "not-the-password"},
+        json={"email": "demo-admin@agentshield.dev", "password": "not-the-password"},
     )
     assert response.status_code == 401
     assert response.json()["detail"] == "Invalid credentials"

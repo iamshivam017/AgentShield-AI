@@ -25,7 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=8.4,<9",
+  "pytest>=9.0.3,<10",
   "pytest-cov>=6.2,<7",
   "mypy>=1.17,<2",
   "ruff>=0.12,<1",
@@ -54,6 +54,10 @@ python_version = "3.12"
 strict = true
 plugins = ["pydantic.mypy"]
 exclude = ["tests"]
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

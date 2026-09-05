@@ -34,7 +34,7 @@ def client() -> Generator[TestClient, None, None]:
 def auth_headers(client: TestClient) -> dict[str, str]:
     response = client.post(
         "/api/v1/auth/login",
-        json={"email": "analyst@agentshield.dev", "password": TEST_DEMO_PASSWORD},
+        json={"email": "demo-admin@agentshield.dev", "password": TEST_DEMO_PASSWORD},
     )
     assert response.status_code == 200
     return {"Authorization": f"Bearer {response.json()['access_token']}"}
