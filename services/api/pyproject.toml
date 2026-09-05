@@ -20,7 +20,7 @@ dependencies = [
   "numpy>=2.2,<3",
   "prometheus-client>=0.22,<1",
   "python-multipart>=0.0.20,<1",
-  "email-validator>=2.2,<3",
+  "email-validator>=2.3.0,<3",
 ]
 
 [project.optional-dependencies]
