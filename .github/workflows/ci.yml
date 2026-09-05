@@ -24,7 +24,7 @@ jobs:
           echo "JWT_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
           echo "DEMO_USER_PASSWORD=$(openssl rand -hex 20)" >> "$GITHUB_ENV"
           echo "RAZORPAY_WEBHOOK_SECRET=$(openssl rand -hex 20)" >> "$GITHUB_ENV"
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
@@ -89,7 +89,7 @@ jobs:
           echo "JWT_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
           echo "DEMO_USER_PASSWORD=$(openssl rand -hex 20)" >> "$GITHUB_ENV"
           echo "RAZORPAY_WEBHOOK_SECRET=$(openssl rand -hex 20)" >> "$GITHUB_ENV"
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - uses: actions/setup-node@v4
