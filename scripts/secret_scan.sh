@@ -6,4 +6,9 @@ if rg -n --hidden -g '!node_modules/**' -g '!.git/**' -g '!package-lock.json' -e
   echo "Potential live secret detected" >&2
   exit 1
 fi
+yaml_credentials='(?i)^\s*([a-z0-9_]*password|[a-z0-9_]*secret|[a-z0-9_]*token):\s+(?!\$\{)[^\s#]+'
+if rg --pcre2 -n --hidden -g '*.yml' -g '*.yaml' -g '!.git/**' -e "$yaml_credentials" .; then
+  echo "Hardcoded YAML credential detected" >&2
+  exit 1
+fi
 echo "No high-confidence live secret patterns detected"
