@@ -26,7 +26,12 @@ data and the adapter refuses live mode.
 | Frontend quality | Pass | ESLint, TypeScript, Vitest, Next production build |
 | Dependency and secret hygiene | Pass locally where available | npm audit, repository secret scan; pip-audit and gitleaks run in CI |
 | Container release path | Prepared | Non-root Dockerfiles, Compose, migration runbook |
-| Remote CI | Pending at document creation | GitHub Actions is authoritative after branch publication |
+| Remote CI | Pass | GitHub Actions run 33986435262: backend, frontend, E2E, containers, and gitleaks passed |
+
+The passing backend job includes strict mypy, Alembic against a clean database,
+20 tests at 84% coverage, pip-audit, and benchmark reproduction. The E2E job
+executes both the verify-to-test-order path and the hard-block/no-execution path
+in Chromium.
 
 ## Known limitations
 
@@ -39,8 +44,8 @@ data and the adapter refuses live mode.
 - The development user is seeded only in development/test when an injected
   demo password is present. Production requires
   managed identity, account provisioning, and secret rotation.
-- Browser binaries, Docker, and Python package downloads were unavailable in the
-  local runner. Their full integration gates execute in GitHub Actions.
+- Browser binaries and Docker were unavailable in the local runner. Their full
+  integration gates passed in GitHub Actions.
 - Hosting, a public URL, Razorpay test credentials, the recorded pitch, and the
   final Buildathon portal form require account-owner action.
 

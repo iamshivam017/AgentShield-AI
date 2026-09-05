@@ -22,10 +22,10 @@
 | 17 | Persistence | SQLAlchemy schema and Alembic migration | Clean migration CI gate | Added order lookup index | Production backup policy is platform-owned | PASS |
 | 18 | Containerization | Non-root API/web images and Compose stack | Docker build CI gate | Added migrations to API image and build-time web API URL | Local Docker unavailable | PASS WITH NOTES |
 | 19 | Security review | Threat model, secrets controls, headers, dependency audits | Secret scan, npm audit, gitleaks CI | Addressed replay and concurrency findings | Live penetration test deferred | PASS WITH NOTES |
-| 20 | CI/CD | Backend, frontend, E2E, containers, and secret jobs | Workflow syntax and local gate checks | Pinned runtime majors and explicit coverage floor | Remote result recorded after push | PENDING REMOTE |
+| 20 | CI/CD | Backend, frontend, E2E, containers, and secret jobs | GitHub Actions run 33986435262 passed all five jobs | Fixed strict typing, dependency audit, CORS parsing, and locator scope from failed gates | None material | PASS |
 | 21 | Documentation | README, PRD, architecture, security, evaluation, runbooks | Link checker | Corrected implementation/model references | None material | PASS |
 | 22 | Pitch and demo | Five-minute script and deterministic scenario sequence | Dry-run checklist | Calls out synthetic data and test mode | Video recording is manual | PASS WITH NOTES |
 | 23 | Deployment preparation | Configuration, release, rollback, webhook checklist | Compose/config review | Documented build-time public API setting | Hosting account and credentials absent | PASS WITH NOTES |
-| 24 | Final audit and submission | Traceability, limitations, clean branch, final report | `docs/FINAL_AUDIT.md` and Git history | Remote SHA/CI filled after publication | Portal submission remains manual | IN PROGRESS |
+| 24 | Final audit and submission | Traceability, limitations, clean branch, final report | `docs/FINAL_AUDIT.md`, verified remote tree, and green PR CI | Reconciled all release findings before merge | Portal submission remains manual | PASS WITH MANUAL SUBMISSION |
 
 Statuses are updated at release gates. “PASS WITH NOTES” is intentional: it records an external or production-only validation that is not honestly reproducible in this workspace.
